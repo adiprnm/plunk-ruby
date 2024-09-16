@@ -1,8 +1,8 @@
-require 'mailtrap'
+require 'plunk'
 require 'base64'
 
-mail = Mailtrap::Mail::Base.new(
-  from: { email: 'mailtrap@example.com', name: 'Mailtrap Test' },
+mail = Plunk::Mail::Base.new(
+  from: { email: 'plunk@example.com', name: 'Plunk Test' },
   to: [
     { email: 'your@email.com', name: 'Your name' }
   ],
@@ -13,7 +13,7 @@ mail = Mailtrap::Mail::Base.new(
     { email: 'bcc@email.com', name: 'Hidden Recipient' }
   ],
   subject: 'You are awesome!',
-  text: 'Congrats for sending test email with Mailtrap!',
+  text: 'Congrats for sending test email with Plunk!',
   category: 'Integration Test',
   attachments: [
     {
@@ -34,15 +34,9 @@ encoded = Base64.encode64(data).gsub("\n", '')
 
 mail.add_attachment(content: encoded, filename: 'image.png')
 
-client = Mailtrap::Client.new(api_key: 'your-api-key')
+client = Plunk::Client.new(api_key: 'your-api-key')
 
 # Custom host / port
-# client = Mailtrap::Client.new(api_key: 'your-api-key', api_host: 'alternative.host.mailtrap.io', api_port: 8080)
-
-# Bulk sending (@see https://help.mailtrap.io/article/113-sending-streams)
-# client = Mailtrap::Client.new(api_key: 'your-api-key', bulk: true)
-
-# Sandbox sending (@see https://help.mailtrap.io/article/109-getting-started-with-mailtrap-email-testing)
-# client = Mailtrap::Client.new(api_key: 'your-api-key', sandbox: true, inbox_id: 12)
+# client = Plunk::Client.new(api_key: 'your-api-key', api_host: 'alternative.host.mailtrap.io', api_port: 8080)
 
 client.send(mail)

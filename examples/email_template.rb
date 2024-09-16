@@ -1,8 +1,8 @@
-require 'mailtrap'
+require 'plunk'
 
 # create mail object
-mail = Mailtrap::Mail::FromTemplate.new(
-  from: { email: 'mailtrap@example.com', name: 'Mailtrap Test' },
+mail = Plunk::Mail::FromTemplate.new(
+  from: { email: 'plunk@example.com', name: 'Plunk Test' },
   to: [
     { email: 'your@email.com' }
   ],
@@ -13,5 +13,5 @@ mail = Mailtrap::Mail::FromTemplate.new(
 )
 
 # create client and send
-client = Mailtrap::Client.new(api_key: 'your-api-key')
+client = Plunk::Client.new(api_key: 'your-api-key')
 client.send(mail)

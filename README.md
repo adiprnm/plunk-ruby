@@ -1,24 +1,13 @@
-[![test](https://github.com/railsware/mailtrap-ruby/actions/workflows/main.yml/badge.svg)](https://github.com/railsware/mailtrap-ruby/actions/workflows/main.yml)
-[![docs](https://shields.io/badge/docs-rubydoc.info-blue)](https://rubydoc.info/gems/mailtrap)
-[![gem](https://shields.io/gem/v/mailtrap)](https://rubygems.org/gems/mailtrap)
-[![downloads](https://shields.io/gem/dt/mailtrap)](https://rubygems.org/gems/mailtrap)
+# Plunk Ruby client
 
-
-
-# Official Mailtrap Ruby client
-
-This Ruby gem offers integration with the [official API](https://api-docs.mailtrap.io/) for [Mailtrap](https://mailtrap.io).
-
-Quickly add email sending functionality to your Ruby application with Mailtrap.
-
-(This client uses API v2, for v1 refer to [this documentation](https://mailtrap.docs.apiary.io/))
+This is a Plunk Ruby client, based on the [Mailtrap Ruby client](https://github.com/railsware/mailtrap-ruby).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mailtrap'
+gem 'plunk', github: "https://github.com/adiprnm/plunk-ruby"
 ```
 
 And then execute:
