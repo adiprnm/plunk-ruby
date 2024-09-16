@@ -7,7 +7,7 @@ This is a Plunk Ruby client, based on the [Mailtrap Ruby client](https://github.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'plunk', github: "https://github.com/adiprnm/plunk-ruby"
+gem 'plunk', github: "adiprnm/plunk-ruby"
 ```
 
 And then execute:
