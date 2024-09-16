@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mailtrap (2.1.0)
+    plunk (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -98,8 +98,8 @@ PLATFORMS
 DEPENDENCIES
   appraisal
   mail
-  mailtrap!
   net-smtp
+  plunk!
   rake (~> 13.0)
   rspec (~> 3.0)
   rspec-its

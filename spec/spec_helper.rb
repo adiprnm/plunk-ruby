@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'mail'
-require 'mailtrap'
+require 'plunk'
 require 'rspec/its'
 require 'webmock/rspec'
 require 'vcr'
@@ -34,6 +34,7 @@ VCR.configure do |config|
     allow_unused_http_interactions: false,
     record: :once
   }
+  config.debug_logger = File.open("vcr.log", 'w')
 end
 
 RSpec.configure do |config|

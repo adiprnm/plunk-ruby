@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.useplunk.com/v1/send
+    body:
+      encoding: UTF-8
+      string: '{"from":{"email":"sender@example.com","name":"Plunk Test"},"to":[{"email":"recipient@example.com"}],"cc":[],"bcc":[],"subject":"You
+        are awesome!","text":"Congrats for sending test email with Plunk!","attachments":[{"content":"aGVsbG8gd29ybGQ=","filename":"attachment.txt"}],"headers":{},"custom_variables":{},"category":"Integration Test"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - plunk-ruby (https://github.com/adiprnm/plunk-ruby)
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 31 May 2022 15:49:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '71'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"success":true,"emails":[{"contact":{"id":"80d74d13-16eb-48c5-bc2b-aae6fd5865cc","email":"recipient@exmaple.com"},"email":"ebd44b76-9e1d-4826-96a1-9a240c42a939"}]}'
+  recorded_at: Mon, 16 Sep 2024 03:39:51 GMT
+recorded_with: VCR 6.2.0
