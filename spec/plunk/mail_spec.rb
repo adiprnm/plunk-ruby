@@ -23,10 +23,10 @@ RSpec.describe Plunk::Mail do
       }
     end
 
-    its(:from) { is_expected.to eq({ name: 'Plunk Test', email: 'plunk@plunk.io' }) }
-    its(:to) { is_expected.to eq([{ name: 'To 1', email: 'to_1@test.com' }, { email: 'to_2@test.com' }]) }
-    its(:cc) { is_expected.to eq([{ email: 'cc_1@test.com' }, { name: 'Cc 2', email: 'cc_2@test.com' }]) }
-    its(:bcc) { is_expected.to eq([{ email: 'bcc_1@test.com' }, { email: 'bcc_2@test.com' }]) }
+    its(:from) { is_expected.to eq('Plunk Test <plunk@plunk.io>') }
+    its(:to) { is_expected.to eq(['To 1 <to_1@test.com>', 'to_2@test.com']) }
+    its(:cc) { is_expected.to eq(['cc_1@test.com', 'Cc 2 <cc_2@test.com>']) }
+    its(:bcc) { is_expected.to eq(['bcc_1@test.com', 'bcc_2@test.com']) }
     its(:subject) { is_expected.to eq('You are awesome!') }
     its(:text) { is_expected.to eq('Text body') }
     its(:category) { is_expected.to eq('Module Test') }

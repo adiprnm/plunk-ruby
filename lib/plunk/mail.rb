@@ -67,10 +67,13 @@ module Plunk
       end
 
       def prepare_address(address)
-        {
-          email: address.address,
-          name: address.display_name
-        }.compact
+        return if address.nil? || address.address.nil?
+
+        if address.display_name.nil?
+          address.address
+        else
+          "#{address.display_name} <#{address.address}>"
+        end
       end
 
       def prepare_attachments(attachments_list = [])
