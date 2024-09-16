@@ -14,29 +14,25 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install mailtrap
-
 ## Usage
 
 ### Minimal
 
 ```ruby
-require 'mailtrap'
+require 'plunk'
 
 # create mail object
-mail = Mailtrap::Mail::Base.new(
-  from: { email: 'mailtrap@example.com', name: 'Mailtrap Test' },
+mail = Plunk::Mail::Base.new(
+  from: { email: 'plunk@example.com', name: 'Plunk Test' },
   to: [
     { email: 'your@email.com' }
   ],
   subject: 'You are awesome!',
-  text: "Congrats for sending test email with Mailtrap!"
+  text: "Congrats for sending test email with Plunk!"
 )
 
 # create client and send
-client = Mailtrap::Client.new(api_key: 'your-api-key')
+client = Plunk::Client.new(api_key: 'your-api-key')
 client.send(mail)
 ```
 
@@ -45,26 +41,6 @@ Refer to the [`examples`](examples) folder for other examples.
 - [Full](examples/full.rb)
 - [Email template](examples/email_template.rb)
 - [ActionMailer](examples/action_mailer.rb)
-
-### Content-Transfer-Encoding
-
-`mailtrap` gem uses Mailtrap API to send emails. Mailtrap API does not try to
-replicate SMTP. That is why you should expect some limitations when it comes to
-sending. For example, `/api/send` endpoint ignores `Content-Transfer-Encoding`
-(see `headers` in the [API documentation](https://railsware.stoplight.io/docs/mailtrap-api-docs/67f1d70aeb62c-send-email)).
-Meaning your recipients will receive emails only in the default encoding which
-is `quoted-printable`, if you send with Mailtrap API.
-
-For those who does need to use `7bit` or any other encoding, SMTP provides
-better flexibility in that regard. Go to your _Mailtrap account_ → _Email Sending_
-→ _Sending Domains_ → _Your domain_ → _SMTP/API Settings_ to find the SMTP
-configuration example.
-
-## Migration guide v1 → v2
-
-Change `Mailtrap::Sending::Client` to `Mailtrap::Client`.
-
-If you use classes which have `Sending` namespace, remove the namespace like in the example above.
 
 ## Development
 
